@@ -24,3 +24,18 @@ Source `datagen.sql` first. Then modify `generate_all.sql` to point at the bucke
 # Data loading
 
 Modify `schema.sql` to refer to your bucket and source it. Then when you are ready, start the pipeline called "trips" and go grab a coffee.
+
+# Rough performance results on SingleStore
+
+4 32 core machines
+with gp3 storage 1tb, 1000Mb, 7k iops
+
+sort on load disabled
+redundancy 1
+autostats disabled
+**6 minutes**
+
+sort on load enabled
+redundancy 2
+autostats enabled
+**7.4 minutes**
